@@ -4,6 +4,8 @@ from tqdm import tqdm
 import numpy as np
 import torch.backends.cudnn as cudnn
 from config import cfg
+import sys
+sys.path.insert(0, '../common')
 from base import Tester
 
 def parse_args():

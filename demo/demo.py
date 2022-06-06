@@ -58,7 +58,7 @@ original_img = load_img(img_path)
 original_img_height, original_img_width = original_img.shape[:2]
 
 # prepare bbox
-bbox = [340.8, 232.0, 20.7, 20.7] # xmin, ymin, width, height 
+bbox = [250.8, 250.0, 140.7, 120.7] # xmin, ymin, width, height 
 
 bbox = process_bbox(bbox, original_img_width, original_img_height)
 img, img2bb_trans, bb2img_trans = generate_patch_image(original_img, bbox, 1.0, 0.0, False, cfg.input_img_shape) 
