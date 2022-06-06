@@ -1,4 +1,26 @@
 # HandOccNet: Occlusion-Robust 3D Hand Mesh Estimation Network
+# Docker
+To use docker for inference, clone the repo and download the pre-trained model from [here](https://drive.google.com/drive/folders/1OlyV-qbzOmtQYdzV6dbQX4OtAU5ajBOa?usp=sharing) and put it in ```/demo```
+```
+sudo docker build -t occnet:0.0 .
+sudo docker run -it --gpus all occnet:0.0 /bin/bash
+```
+Once you are in the container terminal (the default input image is "input.png" and the bbox is hand-chosen)
+```
+cd demo
+conda activate handoccnet
+python demo.py --gpu 0
+```
+Then you can cp it back to your host and view the output, open another terminal
+```
+sudo docker container ls
+```
+find the container_id of the running container
+```
+sudo docker container cp container_id:/HandOccNet/demo/output.obj path_on_your_host
+sudo docker container cp container_id:/HandOccNet/demo/hand_bbox.png path_on_your_host
+sudo docker container cp container_id:/HandOccNet/demo/hand_image.png path_on_your_host
+```
 
 ## Introduction
 This repository is the offical [Pytorch](https://pytorch.org/) implementation of **[HandOccNet: Occlusion-Robust 3D Hand Mesh Estimation Network (CVPR 2022)](https://arxiv.org/abs/2203.14564)**. Below is the overall pipeline of HandOccNet.
